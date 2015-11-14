@@ -1,9 +1,14 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create]
+
+
   # POST /comments
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
+
+    @comment.user=current_user
 
     respond_to do |format|
       if @comment.save
@@ -20,9 +25,14 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-    @comment.destroy
+    if @comment.user==current_user
+      @comment.destroy
+      message = 'Comment was successfully destroyed.'
+    else
+      message = 'ERROR'
+    end
     respond_to do |format|
-      format.html { redirect_to ideas_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to ideas_url, notice: message }
       format.json { head :no_content }
     end
   end
