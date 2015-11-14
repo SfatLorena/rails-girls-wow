@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  oras: MyString
+  obiectiv: MyString
+  descriete: MyText
+
+two:
+  oras: MyString
+  obiectiv: MyString
+  descriete: MyText

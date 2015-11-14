@@ -1,0 +1,29 @@
+<h1>Listing destinatii_turistices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Oras</th>
+      <th>Obiectiv</th>
+      <th>Descriete</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @destinatii_turistices.each do |destinatii_turistice| %>
+      <tr>
+        <td><%= destinatii_turistice.oras %></td>
+        <td><%= destinatii_turistice.obiectiv %></td>
+        <td><%= destinatii_turistice.descriete %></td>
+        <td><%= link_to 'Show', destinatii_turistice %></td>
+        <td><%= link_to 'Edit', edit_destinatii_turistice_path(destinatii_turistice) %></td>
+        <td><%= link_to 'Destroy', destinatii_turistice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Destinatii turistice', new_destinatii_turistice_path %>

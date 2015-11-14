@@ -1,0 +1,29 @@
+<%= form_for(@destinatii_turistice) do |f| %>
+  <% if @destinatii_turistice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@destinatii_turistice.errors.count, "error") %> prohibited this destinatii_turistice from being saved:</h2>
+
+      <ul>
+      <% @destinatii_turistice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :oras %><br>
+    <%= f.text_field :oras %>
+  </div>
+  <div class="field">
+    <%= f.label :obiectiv %><br>
+    <%= f.text_field :obiectiv %>
+  </div>
+  <div class="field">
+    <%= f.label :descriete %><br>
+    <%= f.text_area :descriete %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
